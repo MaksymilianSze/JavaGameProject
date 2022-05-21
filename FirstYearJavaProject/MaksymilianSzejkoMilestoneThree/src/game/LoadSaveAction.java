@@ -13,6 +13,7 @@ public class LoadSaveAction implements ActionListener {
     private MyView view;
     private JFrame frame;
     private GameLevel level;
+    private StateController stateController;
 
 
     public LoadSaveAction(Game game, JFrame frame, MyView view) {
@@ -29,8 +30,11 @@ public class LoadSaveAction implements ActionListener {
             ioException.printStackTrace();
         }
 
-        frame.dispose();
-        frame = new JFrame("Monster Trucker");
+//        frame.dispose();
+//        frame = new JFrame("Monster Trucker");
+
+        frame.getContentPane().removeAll();
+        frame.repaint();
 
         game.startLevelFromSave(level);
 
@@ -38,12 +42,14 @@ public class LoadSaveAction implements ActionListener {
         Gui gui = new Gui(game.getLevel(), game, frame, view);
         frame.add(gui.getMainPanel(), BorderLayout.WEST);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationByPlatform(true);
+        //frame.setLocationByPlatform(true);
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
 
-
+        stateController = new StateController(game.getLevel(),game, frame);
+        view = game.getView();
+        view.addKeyListener(stateController);
 
 
     }

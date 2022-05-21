@@ -41,7 +41,6 @@ public class Game {
      */
     private Menu menu;
 
-
     private HighScoreWriter saveScore;
 
     private String playerName = "Player1";
@@ -93,7 +92,7 @@ public class Game {
         // don't let the frame be resized
         frame.setResizable(false);
         // size the frame to fit the world view
-        frame.setSize(800,700);
+        frame.setSize(1200,700);
         // finally, make the frame visible
         frame.setVisible(true);
 
@@ -112,7 +111,7 @@ public class Game {
      */
     public void startLevelFromSave(GameLevel level) {
         if (view == null) {
-            view = new MyView(level, 800,700);
+            view = new MyView(level, 1200,700);
         }
         view.setWorld(level);
         this.level = level;
@@ -180,7 +179,7 @@ public class Game {
         level = new Level1(this);
         //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
         if (view == null) {
-            view = new MyView(level, 800,700);
+            view = new MyView(level, 1200,700);
         }
         //add the mouse listener, key listener, set the new truck, add the step listener
         view.setWorld(level);
@@ -213,7 +212,7 @@ public class Game {
         level = new Level2(this);
         //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
         if (view == null) {
-            view = new MyView(level, 800,700);
+            view = new MyView(level, 1200,700);
         }
         //add the mouse listener, key listener, set the new truck, add the step listener
         view.setWorld(level);
@@ -245,7 +244,7 @@ public class Game {
         level = new Level3(this);
         //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
         if (view == null) {
-            view = new MyView(level, 800,700);
+            view = new MyView(level, 1200,700);
         }
         //add the mouse listener, key listener, set the new truck, add the step listener
         view.setWorld(level);
@@ -278,7 +277,7 @@ public class Game {
         level = new Level4(this);
         //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
         if (view == null) {
-            view = new MyView(level, 800,700);
+            view = new MyView(level, 1200,700);
         }
         //add the mouse listener, key listener, set the new truck, add the step listener
         view.setWorld(level);

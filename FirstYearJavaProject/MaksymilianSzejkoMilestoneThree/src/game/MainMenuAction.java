@@ -34,27 +34,26 @@ public class MainMenuAction implements ActionListener {
         }
 
 
-        frame.dispose();
-        frame = new JFrame("Monster Trucker");
+//        frame.dispose();
+//        frame = new JFrame("Monster Trucker");
+
+        frame.getContentPane().removeAll();
+        frame.revalidate();
+        frame.repaint();
 
         Menu menu = new Menu(game, frame, view);
-        frame.add( menu.getMainMenu(game.getLevel(), game), BorderLayout.CENTER );
+        frame.add( menu.getMainMenu(game.getLevel(), game), BorderLayout.CENTER);
 
         // enable the frame to quit the application
         // when the x button is pressed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationByPlatform(true);
+        //frame.setLocationByPlatform(true);
         // don't let the frame be resized
         frame.setResizable(false);
         // size the frame to fit the world view
-        frame.setSize(800,700);
+        frame.setSize(1200,700);
         // finally, make the frame visible
         frame.setVisible(true);
-
-
-
-
-
 
     }
 }

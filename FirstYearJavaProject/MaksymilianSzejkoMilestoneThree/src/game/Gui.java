@@ -22,15 +22,13 @@ public class Gui {
     public JPanel getMainPanel() {
         return mainPanel;
 
-
-
     }
 
     public Gui(GameLevel level, Game game, JFrame frame, MyView view) {
         this.game = game;
         this.level = level;
         quitButton.addActionListener(new QuitAction());
-        pauseButton.addActionListener(new PauseAction(level,game));
+        pauseButton.addActionListener(new PauseAction(level,game, frame));
         saveButton.addActionListener(new SaveAction(level, game));
         restartButton.addActionListener(new RestartAction(game,level));
         level1Button.addActionListener(new Level1Action(game,level));
@@ -39,10 +37,6 @@ public class Gui {
         level4Button.addActionListener(new Level4Action(game,level));
 
         mainMenuButton.addActionListener(new MainMenuAction(game, frame, view));
-
-
-
-
 
     }
 }

@@ -12,10 +12,7 @@ public class StartAction implements ActionListener {
     private MyView view;
     private JFrame frame;
     private Menu menu;
-
-
-
-
+    private StateController stateController;
 
 
     public StartAction(Game game, JFrame frame, MyView view, Menu menu) {
@@ -28,22 +25,28 @@ public class StartAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         game.setPlayerName(menu.getPlayerName());
-        frame.dispose();
-        frame = new JFrame("Monster Trucker");
+        //frame.dispose();
+        //frame = new JFrame("Monster Trucker");
+
+
+        frame.getContentPane().removeAll();
+        frame.repaint();
+
+
         game.startLevel1();
         frame.add(game.getView());
-        Gui gui = new Gui(game.getLevel(), game, frame, view);
-        frame.add(gui.getMainPanel(), BorderLayout.WEST);
+//        Gui gui = new Gui(game.getLevel(), game, frame, view);
+//        frame.add(gui.getMainPanel(), BorderLayout.WEST);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationByPlatform(true);
+        //frame.setLocationByPlatform(true);
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
 
-
-
-
-
+        stateController = new StateController(game.getLevel(),game, frame);
+        view = game.getView();
+        view.addKeyListener(stateController);
 
     }
+
 }

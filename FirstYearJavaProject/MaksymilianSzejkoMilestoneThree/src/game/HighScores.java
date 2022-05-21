@@ -23,7 +23,6 @@ public class HighScores {
 
     public HighScores(Game game, JFrame frame, MyView view) {
         this.game = game;
-        backButton.addActionListener(new MainMenuAction(game, frame, view));
 
         reader = new HighScoreReader("data/highScore.txt");
 
@@ -43,7 +42,7 @@ public class HighScores {
 
         highScoreTable.setModel(new DefaultTableModel(highScoresObjects, new String[]{"Player Name", "Level","Score"}));
 
-
+        backButton.addActionListener(new MainMenuAction(game, frame, view));
 
 
 
