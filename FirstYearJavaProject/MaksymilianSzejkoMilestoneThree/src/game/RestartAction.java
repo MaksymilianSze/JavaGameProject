@@ -1,5 +1,6 @@
 package game;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,10 +8,13 @@ public class RestartAction implements ActionListener {
 
     private GameLevel level;
     private Game game;
+    private JFrame frame;
 
     public RestartAction(Game game, GameLevel level) {
         this.game = game;
         this.level = level;
+        this.frame = game.getFrame();
+
     }
 
     @Override

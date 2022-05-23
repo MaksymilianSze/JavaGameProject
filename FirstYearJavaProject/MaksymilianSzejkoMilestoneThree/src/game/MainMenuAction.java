@@ -33,16 +33,12 @@ public class MainMenuAction implements ActionListener {
             GameLevel.getEngineIdle().stop();
         }
 
-
-//        frame.dispose();
-//        frame = new JFrame("Monster Trucker");
-
         frame.getContentPane().removeAll();
         frame.revalidate();
         frame.repaint();
 
         Menu menu = new Menu(game, frame, view);
-        frame.add( menu.getMainMenu(game.getLevel(), game), BorderLayout.CENTER);
+        frame.add( menu.getMainMenu(), BorderLayout.CENTER);
 
         // enable the frame to quit the application
         // when the x button is pressed

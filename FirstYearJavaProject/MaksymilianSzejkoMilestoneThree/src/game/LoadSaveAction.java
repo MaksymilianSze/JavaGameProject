@@ -30,27 +30,17 @@ public class LoadSaveAction implements ActionListener {
             ioException.printStackTrace();
         }
 
-//        frame.dispose();
-//        frame = new JFrame("Monster Trucker");
-
         frame.getContentPane().removeAll();
         frame.repaint();
 
         game.startLevelFromSave(level);
 
         frame.add(game.getView());
-        Gui gui = new Gui(game.getLevel(), game, frame, view);
-        frame.add(gui.getMainPanel(), BorderLayout.WEST);
+
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setLocationByPlatform(true);
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
-
-        stateController = new StateController(game.getLevel(),game, frame);
-        view = game.getView();
-        view.addKeyListener(stateController);
-
-
     }
 }

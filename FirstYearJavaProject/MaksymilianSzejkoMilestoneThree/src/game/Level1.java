@@ -103,13 +103,11 @@ public class Level1 extends GameLevel implements ActionListener {
             brokenCar.setPosition(new Vec2(-15+i*2,-12));
             BrokenCarCollision destruction = new BrokenCarCollision(BrokenCar.getCrushSound1(), BrokenCar.getCrushSound2());
             brokenCar.addCollisionListener(destruction);
-            brokenCar.setAlwaysOutline(true);
         }
 
         // set truck position
         truck.setPosition(new Vec2(-30,-8));
         truck.setGravityScale(1.2f);
-        truck.setAlwaysOutline(true);
 
 
 
@@ -125,11 +123,9 @@ public class Level1 extends GameLevel implements ActionListener {
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (-65,-3));
-        tree.setAlwaysOutline(true);
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (70,-3));
-        tree.setAlwaysOutline(true);
 
 
         //make end flag
@@ -137,20 +133,17 @@ public class Level1 extends GameLevel implements ActionListener {
         endFlag.setPosition(new Vec2(50,-8.5f));
         EndFlagSensor flag = new EndFlagSensor(game);
         endFlag.getEndSensor().addSensorListener(flag);
-        endFlag.setAlwaysOutline(true);
 
 
         // loop for making some rock obstacles
         for (int i = 0; i < 3; i++) {
             Rock rock = new Rock(this);
             rock.setPosition(new Vec2(25-i*5,-10));
-            rock.setAlwaysOutline(true);
         }
 
         for (int i = 0; i < 1; i++) {
             Rock rock = new Rock(this);
             rock.setPosition(new Vec2(25-i*5,-6));
-            rock.setAlwaysOutline(true);
         }
 
 
@@ -158,7 +151,6 @@ public class Level1 extends GameLevel implements ActionListener {
         for (int i = 1; i < 200; i += 50) {
             Ground ground = new Ground(this);
             ground.setPosition(new Vec2(-50+i, -13f));
-            ground.setAlwaysOutline(true);
         }
 
 

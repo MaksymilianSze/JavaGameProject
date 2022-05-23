@@ -65,9 +65,6 @@ public abstract class GameLevel extends World {
 
     public abstract void populate(Game game);
 
-//    public static List<DynamicBody> getAllDynamicBodies(GameLevel level) {
-//        return ;
-//    }
 }
 
 

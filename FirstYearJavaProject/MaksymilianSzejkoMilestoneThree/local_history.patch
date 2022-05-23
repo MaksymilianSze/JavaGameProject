@@ -1,0 +1,101 @@
+Index: src/game/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/Game.java b/src/game/Game.java
+--- a/src/game/Game.java	
++++ b/src/game/Game.java	(date 1653323177882)
+@@ -36,6 +36,18 @@
+ 
+     private JFrame frame;
+ 
++    private StateController stateController;
++
++    public Gui getGui() {
++        return gui;
++    }
++
++    public void setGui(Gui gui) {
++        this.gui = gui;
++    }
++
++    private Gui gui;
++
+     /**
+      * A graphical display for the main menu.
+      */
+@@ -115,7 +127,7 @@
+         }
+         view.setWorld(level);
+         this.level = level;
+-        
++
+ 
+         if (Level1.class.equals(level.getClass())) {
+             view.setBackground(new ImageIcon("data/background1.png").getImage());
+@@ -190,6 +202,15 @@
+         view.addKeyListener(controller);
+         view.setTruck(level.getTruck());
+         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar() ));
++
++        // create the gui and add it to the frame but set it invisible because it should only display when paused
++        Gui gui = new Gui(level, this, this.getFrame(), this.getView());
++        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
++        gui.getMainPanel().setVisible(false);
++
++        stateController = new StateController(level,this, this.getFrame(), gui);
++        this.getView().addKeyListener(stateController);
++
+         level.start();
+ 
+         try {
+@@ -222,7 +243,15 @@
+         view.addMouseListener(new GiveFocus(view));
+         controller.setTruck(level.getTruck());
+         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
+-        //debugView = new DebugViewer(level, 1920, 900);
++
++        // create the gui and add it to the frame but set it invisible because it should only display when paused
++        Gui gui = new Gui(level, this, this.getFrame(), this.getView());
++        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
++        gui.getMainPanel().setVisible(false);
++
++        stateController = new StateController(level,this, this.getFrame(), gui);
++        this.getView().addKeyListener(stateController);
++
+         level.start();
+         try {
+             gameMusic = new SoundClip("data/Level2Music.wav");
+@@ -254,6 +283,15 @@
+         view.addMouseListener(new GiveFocus(view));
+         controller.setTruck(level.getTruck());
+         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
++
++        // create the gui and add it to the frame but set it invisible because it should only display when paused
++        Gui gui = new Gui(level, this, this.getFrame(), this.getView());
++        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
++        gui.getMainPanel().setVisible(false);
++
++        stateController = new StateController(level,this, this.getFrame(), gui);
++        this.getView().addKeyListener(stateController);
++
+         level.start();
+ 
+         try {
+@@ -286,6 +324,15 @@
+         view.setTruck(level.getTruck());
+         controller.setTruck(level.getTruck());
+         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
++
++        // create the gui and add it to the frame but set it invisible because it should only display when paused
++        Gui gui = new Gui(level, this, this.getFrame(), this.getView());
++        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
++        gui.getMainPanel().setVisible(false);
++
++        stateController = new StateController(level,this, this.getFrame(), gui);
++        this.getView().addKeyListener(stateController);
++
+         level.start();
+ 
+         try {

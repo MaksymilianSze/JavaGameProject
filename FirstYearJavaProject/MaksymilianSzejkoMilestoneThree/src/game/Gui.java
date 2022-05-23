@@ -3,7 +3,6 @@ package game;
 import javax.swing.*;
 
 public class Gui {
-    private JButton pauseButton;
     private JButton restartButton;
     private JButton quitButton;
     private JPanel mainPanel;
@@ -17,8 +16,6 @@ public class Gui {
     private Game game;
 
 
-
-
     public JPanel getMainPanel() {
         return mainPanel;
 
@@ -28,7 +25,6 @@ public class Gui {
         this.game = game;
         this.level = level;
         quitButton.addActionListener(new QuitAction());
-        pauseButton.addActionListener(new PauseAction(level,game, frame));
         saveButton.addActionListener(new SaveAction(level, game));
         restartButton.addActionListener(new RestartAction(game,level));
         level1Button.addActionListener(new Level1Action(game,level));

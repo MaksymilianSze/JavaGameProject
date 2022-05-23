@@ -10,12 +10,14 @@ public class PauseAction implements ActionListener {
     private GameLevel level;
     private Game game;
     private JFrame frame;
+
     private Gui gui;
 
-    public PauseAction(GameLevel level, Game game, JFrame frame) {
+    public PauseAction(GameLevel level, Game game, JFrame frame, Gui gui) {
         this.level = level;
         this.game = game;
         this.frame = frame;
+        this.gui = gui;
     }
 
     @Override
@@ -24,16 +26,13 @@ public class PauseAction implements ActionListener {
             game.getGameMusic().pause();
             GameLevel.getEngineIdle().pause();
             game.getLevel().stop();
-            gui = new Gui(game.getLevel(), game, frame, game.getView());
-            frame.add(gui.getMainPanel(), BorderLayout.WEST);
+            gui.getMainPanel().setVisible(true);
             frame.revalidate();
             frame.repaint();
 
         }
         else {
-            frame.remove(gui.getMainPanel());
-            frame.revalidate();
-            frame.repaint();
+            gui.getMainPanel().setVisible(false);
             game.getGameMusic().resume();
             GameLevel.getEngineIdle().resume();
             game.getLevel().start();

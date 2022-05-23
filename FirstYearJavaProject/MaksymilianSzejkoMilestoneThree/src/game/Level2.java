@@ -80,8 +80,6 @@ public class Level2  extends GameLevel{
         CoinSensor pickup2 = new CoinSensor(truck, coin2);
         coin2.getCoin().addSensorListener(pickup2);
 
-        coin.setAlwaysOutline(true);
-        coin2.setAlwaysOutline(true);
 
         //loops for some obstacles
         for (int i = 1; i < 15; i += 5) {
@@ -89,7 +87,6 @@ public class Level2  extends GameLevel{
             brokenCar.setPosition(new Vec2(-10+i*2,-12));
             BrokenCarCollision destruction = new BrokenCarCollision(BrokenCar.getCrushSound1(), BrokenCar.getCrushSound2());
             brokenCar.addCollisionListener(destruction);
-            brokenCar.setAlwaysOutline(true);
         }
 
         for (int i = 1; i < 15; i += 5) {
@@ -97,26 +94,22 @@ public class Level2  extends GameLevel{
             brokenCar.setPosition(new Vec2(-10+i*2,-6));
             BrokenCarCollision destruction = new BrokenCarCollision(BrokenCar.getCrushSound1(), BrokenCar.getCrushSound2());
             brokenCar.addCollisionListener(destruction);
-            brokenCar.setAlwaysOutline(true);
         }
 
 
         for (int i = 0; i < 3; i++) {
             hay = new Hay(this);
             hay.setPosition(new Vec2(-30+i,-8));
-            hay.setAlwaysOutline(true);
         }
 
         for (int i = 0; i < 3; i++) {
             hay = new Hay(this);
             hay.setPosition(new Vec2(-30+i,-4));
-            hay.setAlwaysOutline(true);
         }
 
         // set truck position
         truck.setPosition(new Vec2(-55,-8));
         truck.setGravityScale(1.2f);
-        truck.setAlwaysOutline(true);
 
 
 
@@ -127,7 +120,6 @@ public class Level2  extends GameLevel{
         explosiveBarrel.setPosition(new Vec2(-20,-8));
         ExplosiveBarrelCollision barrel = new ExplosiveBarrelCollision(explosiveBarrel, bodies, this, game);
         explosiveBarrel.addCollisionListener(barrel);
-        explosiveBarrel.setAlwaysOutline(true);
     }
 
     public Level2(Game game){
@@ -137,11 +129,9 @@ public class Level2  extends GameLevel{
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (-88,-3));
-        tree.setAlwaysOutline(true);
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (80,-3));
-        tree.setAlwaysOutline(true);
 
 
         //make end flag
@@ -149,7 +139,6 @@ public class Level2  extends GameLevel{
         endFlag.setPosition(new Vec2(40,-8.5f));
         EndFlagSensor flag = new EndFlagSensor(game);
         endFlag.getEndSensor().addSensorListener(flag);
-        endFlag.setAlwaysOutline(true);
 
 
 
@@ -157,7 +146,6 @@ public class Level2  extends GameLevel{
         for (int i = 1; i < 200; i += 50) {
             Ground ground = new Ground(this);
             ground.setPosition(new Vec2(-70+i, -13f));
-            ground.setAlwaysOutline(true);
         }
 
 

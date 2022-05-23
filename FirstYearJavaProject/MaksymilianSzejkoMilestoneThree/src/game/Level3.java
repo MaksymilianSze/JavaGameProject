@@ -72,7 +72,6 @@ public class Level3  extends GameLevel{
         coin.setPosition(new Vec2(140,-5));
         CoinSensor pickup = new CoinSensor(truck, coin);
         coin.getCoin().addSensorListener(pickup);
-        coin.setAlwaysOutline(true);
 
         //loops for making obstacles
         for (int i = 1; i < 30; i += 5) {
@@ -80,7 +79,6 @@ public class Level3  extends GameLevel{
             brokenCar.setPosition(new Vec2(-10+i*2,-12));
             BrokenCarCollision destruction = new BrokenCarCollision(BrokenCar.getCrushSound1(), BrokenCar.getCrushSound2());
             brokenCar.addCollisionListener(destruction);
-            brokenCar.setAlwaysOutline(true);
         }
 
         for (int i = 1; i < 30; i += 5) {
@@ -88,13 +86,11 @@ public class Level3  extends GameLevel{
             brokenCar.setPosition(new Vec2(-10+i*2,-6));
             BrokenCarCollision destruction = new BrokenCarCollision(BrokenCar.getCrushSound1(), BrokenCar.getCrushSound2());
             brokenCar.addCollisionListener(destruction);
-            brokenCar.setAlwaysOutline(true);
         }
 
         // make the truck
         truck.setPosition(new Vec2(-60,-8));
         truck.setGravityScale(1.2f);
-        truck.setAlwaysOutline(true);
     }
 
     public Level3(Game game){
@@ -105,11 +101,9 @@ public class Level3  extends GameLevel{
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (-88,-3));
-        tree.setAlwaysOutline(true);
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (180,-3));
-        tree.setAlwaysOutline(true);
 
 
         //make end flag
@@ -117,12 +111,10 @@ public class Level3  extends GameLevel{
         endFlag.setPosition(new Vec2(150,-8.5f));
         EndFlagSensor flag = new EndFlagSensor(game);
         endFlag.getEndSensor().addSensorListener(flag);
-        endFlag.setAlwaysOutline(true);
 
         //make ramp
         ramp = new Ramp(this);
         ramp.setPosition(new Vec2(-40,-8));
-        ramp.setAlwaysOutline(true);
 
         //loop for making fire
         for (int i = 0; i < 45; i += 15) {
@@ -130,7 +122,6 @@ public class Level3  extends GameLevel{
             FireSensor damage = new FireSensor(truck, fire);
             fire.getFireSensor().addSensorListener(damage);
             fire.setPosition(new Vec2(0+i,-1));
-            fire.setAlwaysOutline(true);
         }
 
 
@@ -138,7 +129,6 @@ public class Level3  extends GameLevel{
         for (int i = 1; i < 300; i += 50) {
             Ground ground = new Ground(this);
             ground.setPosition(new Vec2(-70+i, -13f));
-            ground.setAlwaysOutline(true);
         }
 
 

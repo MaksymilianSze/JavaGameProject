@@ -19,7 +19,7 @@ public class Menu {
 
 
 
-    public JPanel getMainMenu(GameLevel level, Game game) {
+    public JPanel getMainMenu() {
         return mainMenu;
     }
 

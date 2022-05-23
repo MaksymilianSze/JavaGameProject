@@ -74,7 +74,6 @@ public class Level4 extends GameLevel{
         plank = new Plank(this);
         plank.setPosition(new Vec2(20,20));
         plank.rotateDegrees(90);
-        plank.setAlwaysOutline(true);
 
         bodies = this.getDynamicBodies();
 
@@ -82,7 +81,6 @@ public class Level4 extends GameLevel{
         explosiveBarrel.setPosition(new Vec2(11,5));
         ExplosiveBarrelCollision barrel = new ExplosiveBarrelCollision(explosiveBarrel, bodies, this, game);
         explosiveBarrel.addCollisionListener(barrel);
-        explosiveBarrel.setAlwaysOutline(true);
 
         //make coins
         coin = new Coin(this);
@@ -98,7 +96,6 @@ public class Level4 extends GameLevel{
         // make the truck
         truck.setPosition(new Vec2(-60,-8));
         truck.setGravityScale(1.2f);
-        truck.setAlwaysOutline(true);
 
     }
 
@@ -110,23 +107,19 @@ public class Level4 extends GameLevel{
 
         water = new Water(this);
         water.setPosition(new Vec2(66.1f,-7f));
-        water.setAlwaysOutline(true);
 
         populate(game);
 
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (-100,-3));
-        tree.setAlwaysOutline(true);
 
         tree = new Tree(this);
         tree.setPosition(new Vec2 (200,-3));
-        tree.setAlwaysOutline(true);
 
         //make ramp
         ramp = new Ramp(this);
         ramp.setPosition(new Vec2(-25,-8));
-        ramp.setAlwaysOutline(true);
 
         platform = new BoxShape(5,0.5f);
         StaticBody bombHolder = new StaticBody(this, platform);
@@ -140,7 +133,6 @@ public class Level4 extends GameLevel{
         endFlag.setPosition(new Vec2(160,-8.5f));
         EndFlagSensor flag = new EndFlagSensor(game);
         endFlag.getEndSensor().addSensorListener(flag);
-        endFlag.setAlwaysOutline(true);
 
 
 
@@ -149,19 +141,16 @@ public class Level4 extends GameLevel{
         for (int i = 1; i < 100; i += 50) {
             Ground ground = new Ground(this);
             ground.setPosition(new Vec2(-70+i, -13f));
-            ground.setAlwaysOutline(true);
         }
 
         for (int i = 1; i < 100; i += 50) {
             Ground ground = new Ground(this);
             ground.setPosition(new Vec2(30+i, -16f));
-            ground.setAlwaysOutline(true);
         }
 
         for (int i = 1; i < 100; i += 50) {
             Ground ground = new Ground(this);
             ground.setPosition(new Vec2(150+i, -13f));
-            ground.setAlwaysOutline(true);
         }
 
 

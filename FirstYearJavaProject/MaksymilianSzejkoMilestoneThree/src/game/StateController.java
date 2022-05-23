@@ -8,8 +8,8 @@ public class StateController implements KeyListener {
 
     private PauseAction pause;
 
-    public StateController(GameLevel level, Game game, JFrame frame) {
-        this.pause = new PauseAction(level, game, frame);
+    public StateController(GameLevel level, Game game, JFrame frame, Gui gui) {
+        this.pause = new PauseAction(level, game, frame, gui);
     }
 
     @Override

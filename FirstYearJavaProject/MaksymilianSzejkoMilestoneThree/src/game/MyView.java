@@ -41,14 +41,14 @@ public class MyView extends UserView {
     protected void paintForeground(Graphics2D g) {
 
         g.setFont(new Font("TimesRoman", Font.BOLD, 22));
-        g.drawString("Score: " + truck.getPoints(), 10, 22);
+        g.drawString("Score: " + truck.getPoints(), 10, 22); // draw the score
 
         g.setColor(Color.RED);
         g.fillRect(110, 4, truck.getMaxHealth() * 2, 20); // draw the total health bar outline in red
         g.setColor(Color.GREEN);
         g.fillRect(110, 4, truck.getCurrentHealth() * 2, 20); // draw the health bar
         g.setColor(Color.BLACK);
-        g.drawString("Health: " + truck.getCurrentHealth(), 110, 22);
+        g.drawString("Health: " + truck.getCurrentHealth(), 110, 22); // also draw the health bar text
 
 
 
