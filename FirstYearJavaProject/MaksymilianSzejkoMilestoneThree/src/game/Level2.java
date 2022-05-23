@@ -4,6 +4,7 @@ import city.cs.engine.DynamicBody;
 import org.jbox2d.common.Vec2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Level2  extends GameLevel{
     private Truck truck;
@@ -13,7 +14,7 @@ public class Level2  extends GameLevel{
     private BrokenCar brokenCar;
     private EndFlag endFlag;
     private ExplosiveBarrel explosiveBarrel;
-    private ArrayList<DynamicBody> bodies;
+    private List<DynamicBody> bodies;
     private Tree tree;
 
     @Override
@@ -120,10 +121,7 @@ public class Level2  extends GameLevel{
 
 
         // make a collection for the explosion mechanics
-        bodies = new ArrayList<DynamicBody>();
-        bodies.add(truck);
-        bodies.add(brokenCar);
-        bodies.add(hay);
+        bodies = this.getDynamicBodies();
 
         //make explosive barrel
         explosiveBarrel.setPosition(new Vec2(-20,-8));

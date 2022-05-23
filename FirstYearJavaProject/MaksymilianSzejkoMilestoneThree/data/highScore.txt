@@ -1,1 +1,6 @@
 Showcase,1,game.Level3
+Maks,2,game.Level1
+Maks,1,game.Level2
+Maks,1,game.Level3
+Maks,1,game.Level2
+awdawd,1,game.Level3

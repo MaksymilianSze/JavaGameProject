@@ -29,16 +29,6 @@ public class PauseAction implements ActionListener {
             frame.revalidate();
             frame.repaint();
 
-//            frame.getContentPane().removeAll();
-//            frame.repaint();
-//            frame.setPreferredSize(new Dimension(1200, 700));
-//
-//            PauseMenu pauseMenu = new PauseMenu(game.getLevel(), game, frame);
-//            frame.add(pauseMenu.getMainPauseMenu(), BorderLayout.CENTER);
-//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            frame.setResizable(false);
-//            frame.pack();
-//            frame.setVisible(true);
         }
         else {
             frame.remove(gui.getMainPanel());

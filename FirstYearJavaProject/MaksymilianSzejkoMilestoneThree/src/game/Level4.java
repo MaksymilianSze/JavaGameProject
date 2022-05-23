@@ -6,6 +6,7 @@ import city.cs.engine.StaticBody;
 import org.jbox2d.common.Vec2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Level4 extends GameLevel{
     private Truck truck;
@@ -19,7 +20,7 @@ public class Level4 extends GameLevel{
     private Plank plank;
     private BoxShape platform;
     private ExplosiveBarrel explosiveBarrel;
-    private ArrayList<DynamicBody> bodies;
+    private List<DynamicBody> bodies;
 
 
     @Override
@@ -75,9 +76,7 @@ public class Level4 extends GameLevel{
         plank.rotateDegrees(90);
         plank.setAlwaysOutline(true);
 
-        bodies = new ArrayList<DynamicBody>();
-        bodies.add(truck);
-        bodies.add(plank);
+        bodies = this.getDynamicBodies();
 
         explosiveBarrel = new ExplosiveBarrel(this);
         explosiveBarrel.setPosition(new Vec2(11,5));

@@ -1,11 +1,13 @@
 package game;
 
+import city.cs.engine.DynamicBody;
 import city.cs.engine.SoundClip;
 import city.cs.engine.World;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.util.List;
 
 public abstract class GameLevel extends World {
     private Truck truck;
@@ -62,6 +64,10 @@ public abstract class GameLevel extends World {
     public abstract String getLevelName();
 
     public abstract void populate(Game game);
+
+//    public static List<DynamicBody> getAllDynamicBodies(GameLevel level) {
+//        return ;
+//    }
 }
 
 

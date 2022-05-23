@@ -7,6 +7,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -34,7 +35,7 @@ public class ExplosiveBarrel extends DynamicBody {
     /**
      * Create the barrel.
      * <p>
-     * Create the barrel and spawn it it.
+     * Create the barrel and spawn it.
      * @param world The place where you want to spawn the barrel.
      */
     public ExplosiveBarrel(World world) {
@@ -46,7 +47,7 @@ public class ExplosiveBarrel extends DynamicBody {
     /**
      * Destroy the barrel.
      * <p>
-     * Destroy the barrel and play it's destruction sound.
+     * Destroy the barrel and play its destruction sound.
      *
      */
     @Override
@@ -60,17 +61,17 @@ public class ExplosiveBarrel extends DynamicBody {
      * <p>
      * Apply the barrel explosion. Apply an impulse in a direction depending on whether the dynamic body is to the
      * left or right.
-     * @param args The array list of the dynamic bodies to apply the impulse to.
+     * @param bodies The array list of the dynamic bodies to apply the impulse to.
      * @param barrelXPos The current x position of the barrel so that we know how to apply the impulse.
      */
-    public void applyExplosion(ArrayList<DynamicBody> args, float barrelXPos) {
-        for (DynamicBody arg: args) {
+    public void applyExplosion(List<DynamicBody> bodies, float barrelXPos) {
+        for (DynamicBody body: bodies) {
             // loop over all the bodies
-            if (arg.getPosition().x < barrelXPos ) { // if the body is to the left then apply an impulse to the left and if it is to the right then apply it to the right
-                arg.applyImpulse( new Vec2(-100000,0) );
+            if (body.getPosition().x < barrelXPos ) { // if the body is to the left then apply an impulse to the left and if it is to the right then apply it to the right
+                body.applyImpulse( new Vec2(-100000,0) );
             }
             else {
-                arg.applyImpulse( new Vec2(100000,0) );
+                body.applyImpulse( new Vec2(100000,0) );
             }
 
         }

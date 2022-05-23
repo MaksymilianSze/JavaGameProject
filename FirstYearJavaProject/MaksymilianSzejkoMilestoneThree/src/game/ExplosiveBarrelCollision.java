@@ -5,6 +5,7 @@ import city.cs.engine.CollisionListener;
 import city.cs.engine.DynamicBody;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The explosive barrel collision class.
@@ -18,10 +19,10 @@ public class ExplosiveBarrelCollision implements CollisionListener {
     /**
      * Holds all the bodies that will be used for collision.
      */
-    private ArrayList collisionBodies;
+    private List collisionBodies;
 
 
-    public ExplosiveBarrelCollision(ExplosiveBarrel explosiveBarrel, ArrayList bodies, GameLevel level, Game game) {
+    public ExplosiveBarrelCollision(ExplosiveBarrel explosiveBarrel, List<DynamicBody> bodies, GameLevel level, Game game) {
         this.explosiveBarrel = explosiveBarrel;
         this.collisionBodies = bodies;
     }

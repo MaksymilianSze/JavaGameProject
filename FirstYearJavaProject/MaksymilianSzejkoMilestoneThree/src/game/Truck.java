@@ -49,10 +49,13 @@ public class Truck extends DynamicBody {
         return this.currentHealth;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
-
 
     public boolean getIsRightWheelInContact() {
         return isRightWheelInContact;
@@ -69,7 +72,6 @@ public class Truck extends DynamicBody {
     public void setLeftWheelInContact(boolean wheelInContact) {
         isLeftWheelInContact = wheelInContact;
     }
-
 
     public void takeDamage() {
         currentHealth -= 10;
