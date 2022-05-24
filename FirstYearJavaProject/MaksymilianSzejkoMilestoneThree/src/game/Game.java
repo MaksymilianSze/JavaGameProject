@@ -221,7 +221,7 @@ public class Game {
     /**
      * The method for starting level 2.
      * <p>
-     * The method for starting level 2. This method loads the correct image and music for level 1.
+     * The method for starting level 2. This method loads the correct image and music for level 2.
      *
      *
      *
@@ -291,7 +291,7 @@ public class Game {
     /**
      * The method for starting level 4.
      * <p>
-     * The method for starting level 4. This method loads the correct image and music for level 1.
+     * The method for starting level 4. This method loads the correct image and music for level 4.
      *
      *
      *
