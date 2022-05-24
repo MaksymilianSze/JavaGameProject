@@ -52,7 +52,7 @@ public class GameSaverLoader {
                 String[] tokens = line.split(","); // split each value to read by a comma
                 level = tokens[0]; //first value will be the level
                 int score = Integer.parseInt(tokens[1]); //second value will be the score
-                int health = Integer.parseInt(tokens[2]); //third value will the the health
+                int health = Integer.parseInt(tokens[2]); //third value will the health
                 String name = tokens[3]; //fourth value will be the player name
                 line = reader.readLine();
                 game.setPlayerName(name); //set the player name

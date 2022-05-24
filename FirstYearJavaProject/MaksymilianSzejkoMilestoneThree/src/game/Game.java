@@ -219,6 +219,9 @@ public class Game {
         if (stateController != null) {
             view.removeKeyListener(stateController);
         }
+        if (gui != null) {
+            this.getFrame().remove(gui.getMainPanel());
+        }
 
         gui = new Gui(level, this, this.getFrame(), this.getView());
         this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
@@ -263,7 +266,9 @@ public class Game {
         if (stateController != null) {
             view.removeKeyListener(stateController);
         }
-
+        if (gui != null) {
+            this.getFrame().remove(gui.getMainPanel());
+        }
         gui = new Gui(level, this, this.getFrame(), this.getView());
         this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
         stateController = new StateController(level,this, this.getFrame(), gui);
@@ -305,6 +310,9 @@ public class Game {
         // create the gui and add it to the frame but set it invisible because it should only display when paused
         if (stateController != null) {
             view.removeKeyListener(stateController);
+        }
+        if (gui != null) {
+            this.getFrame().remove(gui.getMainPanel());
         }
 
         gui = new Gui(level, this, this.getFrame(), this.getView());
@@ -349,6 +357,9 @@ public class Game {
         // create the gui and add it to the frame but set it invisible because it should only display when paused
         if (stateController != null) {
             view.removeKeyListener(stateController);
+        }
+        if (gui != null) {
+            this.getFrame().remove(gui.getMainPanel());
         }
 
         gui = new Gui(level, this, this.getFrame(), this.getView());
