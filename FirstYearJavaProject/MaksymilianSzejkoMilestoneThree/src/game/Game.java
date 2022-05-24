@@ -175,16 +175,7 @@ public class Game {
         view.setTruck(level.getTruck());
         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar() ));
 
-        // create the gui and add it to the frame but set it invisible because it should only display when paused
-        if (stateController != null) {
-            view.removeKeyListener(stateController);
-        }
-
-        gui = new Gui(level, this, this.getFrame(), this.getView());
-        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
-        stateController = new StateController(level,this, this.getFrame(), gui);
-        view.addKeyListener(stateController);
-        gui.getMainPanel().setVisible(false);
+        guiStartUp();
 
         level.start();
 
@@ -215,19 +206,7 @@ public class Game {
         view.setTruck(level.getTruck());
         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar() ));
 
-        // create the gui and add it to the frame but set it invisible because it should only display when paused
-        if (stateController != null) {
-            view.removeKeyListener(stateController);
-        }
-        if (gui != null) {
-            this.getFrame().remove(gui.getMainPanel());
-        }
-
-        gui = new Gui(level, this, this.getFrame(), this.getView());
-        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
-        stateController = new StateController(level,this, this.getFrame(), gui);
-        view.addKeyListener(stateController);
-        gui.getMainPanel().setVisible(false);
+        guiStartUp();
 
         level.start();
 
@@ -262,18 +241,7 @@ public class Game {
         controller.setTruck(level.getTruck());
         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
 
-        // create the gui and add it to the frame but set it invisible because it should only display when paused
-        if (stateController != null) {
-            view.removeKeyListener(stateController);
-        }
-        if (gui != null) {
-            this.getFrame().remove(gui.getMainPanel());
-        }
-        gui = new Gui(level, this, this.getFrame(), this.getView());
-        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
-        stateController = new StateController(level,this, this.getFrame(), gui);
-        view.addKeyListener(stateController);
-        gui.getMainPanel().setVisible(false);
+        guiStartUp();
 
         level.start();
         try {
@@ -307,19 +275,7 @@ public class Game {
         controller.setTruck(level.getTruck());
         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
 
-        // create the gui and add it to the frame but set it invisible because it should only display when paused
-        if (stateController != null) {
-            view.removeKeyListener(stateController);
-        }
-        if (gui != null) {
-            this.getFrame().remove(gui.getMainPanel());
-        }
-
-        gui = new Gui(level, this, this.getFrame(), this.getView());
-        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
-        stateController = new StateController(level,this, this.getFrame(), gui);
-        view.addKeyListener(stateController);
-        gui.getMainPanel().setVisible(false);
+        guiStartUp();
 
         level.start();
 
@@ -354,19 +310,7 @@ public class Game {
         controller.setTruck(level.getTruck());
         level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
 
-        // create the gui and add it to the frame but set it invisible because it should only display when paused
-        if (stateController != null) {
-            view.removeKeyListener(stateController);
-        }
-        if (gui != null) {
-            this.getFrame().remove(gui.getMainPanel());
-        }
-
-        gui = new Gui(level, this, this.getFrame(), this.getView());
-        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
-        stateController = new StateController(level,this, this.getFrame(), gui);
-        view.addKeyListener(stateController);
-        gui.getMainPanel().setVisible(false);
+        guiStartUp();
 
         level.start();
 
@@ -426,6 +370,22 @@ public class Game {
             }
         }
 
+    }
+
+    private void guiStartUp() {
+        // create the gui and add it to the frame but set it invisible because it should only display when paused
+        if (stateController != null) {
+            view.removeKeyListener(stateController); //remove the key listener from the previous state
+        }
+        if (gui != null) {
+            this.getFrame().remove(gui.getMainPanel()); //remove the old gui
+        }
+
+        gui = new Gui(level, this, this.getFrame(), this.getView());
+        this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
+        stateController = new StateController(level,this, this.getFrame(), gui);
+        view.addKeyListener(stateController);
+        gui.getMainPanel().setVisible(false);
     }
 
     /** Run the game. */
