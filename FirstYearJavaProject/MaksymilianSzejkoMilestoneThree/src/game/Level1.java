@@ -1,10 +1,15 @@
 package game;
 
 
+import city.cs.engine.SoundClip;
 import org.jbox2d.common.Vec2;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Level1 extends GameLevel implements ActionListener {
     private Truck truck;
@@ -15,6 +20,11 @@ public class Level1 extends GameLevel implements ActionListener {
     private EndFlag endFlag;
     private BrokenCar brokenCar;
     private Tree tree;
+    private SoundClip gameMusic;
+
+
+    private MyView view;
+    private TruckController controller;
 
 
 
@@ -113,6 +123,11 @@ public class Level1 extends GameLevel implements ActionListener {
 
     }
 
+    @Override
+    public MyView getView() {
+        return view;
+    }
+
     public Level1(Game game){
 
         super(game);
@@ -153,8 +168,26 @@ public class Level1 extends GameLevel implements ActionListener {
             ground.setPosition(new Vec2(-50+i, -13f));
         }
 
+        //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
+        if (game.getView() == null) {
+            view = new MyView(this, 1200,700);
+        }
+        //add the mouse listener, key listener, set the new truck, add the step listener
+        view.setWorld(this);
+        view.setBackground(new ImageIcon("data/background1.png").getImage());
+        view.addMouseListener(new GiveFocus(view));
+        controller = new TruckController( this.getTruck() );
+        view.addKeyListener(controller);
+        view.setTruck(this.getTruck());
+        this.addStepListener(new Tracker(view, this.getHay(), this.getTruck(), this.getBrokenCar() ));
 
-
+        try {
+            gameMusic = new SoundClip("data/Level1Music.wav");   // Open an audio input stream
+            gameMusic.loop();  // Set it to continuous playback (looping)
+            gameMusic.setVolume(0.2);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            System.out.println(e);
+        }
 
     }
 

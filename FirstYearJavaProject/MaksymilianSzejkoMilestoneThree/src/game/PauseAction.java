@@ -22,7 +22,7 @@ public class PauseAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (game.getLevel().isRunning()) {
+        if (level.isRunning()) {
             game.getGameMusic().pause();
             GameLevel.getEngineIdle().pause();
             game.getLevel().stop();

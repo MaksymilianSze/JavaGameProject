@@ -6,6 +6,7 @@ import city.cs.engine.World;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public abstract class GameLevel extends World {
 
         try {
             engineIdle = new SoundClip("data/truckidle.wav");   // Open an audio input stream
-            engineIdle.loop();  // Set it to continous playback (looping)
+            engineIdle.loop();  // Set it to continuous playback (looping)
             engineIdle.setVolume(0.1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
@@ -65,6 +66,7 @@ public abstract class GameLevel extends World {
 
     public abstract void populate(Game game);
 
+    public abstract MyView getView();
 }
 
 

@@ -33,7 +33,7 @@ public class StartAction implements ActionListener {
 
 
         game.startLevel1();
-        frame.add(game.getView());
+        frame.add(game.getLevel().getView());
 
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

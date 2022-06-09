@@ -193,30 +193,11 @@ public class Game {
     public void startLevel1() {
 
         level = new Level1(this);
-        //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
-        if (view == null) {
-            view = new MyView(level, 1200,700);
-        }
-        //add the mouse listener, key listener, set the new truck, add the step listener
-        view.setWorld(level);
-        view.setBackground(new ImageIcon("data/background1.png").getImage());
-        view.addMouseListener(new GiveFocus(view));
-        controller = new TruckController( level.getTruck() );
-        view.addKeyListener(controller);
-        view.setTruck(level.getTruck());
-        level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar() ));
 
         guiStartUp();
 
         level.start();
 
-        try {
-            gameMusic = new SoundClip("data/Level1Music.wav");   // Open an audio input stream
-            gameMusic.loop();  // Set it to continuous playback (looping)
-            gameMusic.setVolume(0.2);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println(e);
-        }
     }
     /**
      * The method for starting level 2.
@@ -229,28 +210,11 @@ public class Game {
      */
     public void startLevel2() {
         level = new Level2(this);
-        //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
-        if (view == null) {
-            view = new MyView(level, 1200,700);
-        }
-        //add the mouse listener, key listener, set the new truck, add the step listener
-        view.setWorld(level);
-        view.setBackground(new ImageIcon("data/background2.jpg").getImage());
-        view.setTruck(level.getTruck());
-        view.addMouseListener(new GiveFocus(view));
-        controller.setTruck(level.getTruck());
-        level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
 
         guiStartUp();
 
         level.start();
-        try {
-            gameMusic = new SoundClip("data/Level2Music.wav");
-            gameMusic.loop();  // Set it to continuous playback (looping)
-            gameMusic.setVolume(0.2);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println(e);
-        }
+
     }
     /**
      * The method for starting level 3.
@@ -263,29 +227,10 @@ public class Game {
      */
     public void startLevel3() {
         level = new Level3(this);
-        //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
-        if (view == null) {
-            view = new MyView(level, 1200,700);
-        }
-        //add the mouse listener, key listener, set the new truck, add the step listener
-        view.setWorld(level);
-        view.setBackground(new ImageIcon("data/background3.jpg").getImage());
-        view.setTruck(level.getTruck());
-        view.addMouseListener(new GiveFocus(view));
-        controller.setTruck(level.getTruck());
-        level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
 
         guiStartUp();
 
         level.start();
-
-        try {
-            gameMusic = new SoundClip("data/Level3Music.wav");
-            gameMusic.loop();  // Set it to continuous playback (looping)
-            gameMusic.setVolume(0.2);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println(e);
-        }
     }
 
     /**
@@ -299,28 +244,10 @@ public class Game {
      */
     public void startLevel4() {
         level = new Level4(this);
-        //check if the view has been filled yet, this needs to be done because if you load any level from outside one of the other levels then the view will be null
-        if (view == null) {
-            view = new MyView(level, 1200,700);
-        }
-        //add the mouse listener, key listener, set the new truck, add the step listener
-        view.setWorld(level);
-        view.setBackground(new ImageIcon("data/background4.jpg").getImage());
-        view.setTruck(level.getTruck());
-        controller.setTruck(level.getTruck());
-        level.addStepListener(new Tracker(view, level.getHay(), level.getTruck(), level.getBrokenCar()));
 
         guiStartUp();
 
         level.start();
-
-        try {
-            gameMusic = new SoundClip("data/Level4Music.wav");
-            gameMusic.loop();  // Set it to continuous playback (looping)
-            gameMusic.setVolume(0.2);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            System.out.println(e);
-        }
     }
 
     /**
@@ -382,7 +309,7 @@ public class Game {
         gui = new Gui(level, this, this.getFrame(), this.getView());
         this.getFrame().add(gui.getMainPanel(), BorderLayout.WEST);
         stateController = new StateController(level,this, this.getFrame(), gui);
-        view.addKeyListener(stateController);
+        level.getView().addKeyListener(stateController);
         gui.getMainPanel().setVisible(false);
     }
 
