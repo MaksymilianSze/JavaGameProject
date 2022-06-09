@@ -21,7 +21,6 @@ public class CoinSensor implements SensorListener {
 
     @Override
     public void beginContact(SensorEvent sensorEvent) {
-        System.out.println("test");
         if (sensorEvent.getContactBody() instanceof Truck) {
             coin.destroy();
             truck.setPoints( truck.getPoints()+1 );

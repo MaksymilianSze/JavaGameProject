@@ -6,3 +6,6 @@ Maks,1,game.Level2
 awdawd,1,game.Level3
 ,1,game.Level3
 awd,2,game.Level1
+Maks,2,game.Level1
+,1,game.Level3
+,2,game.Level4

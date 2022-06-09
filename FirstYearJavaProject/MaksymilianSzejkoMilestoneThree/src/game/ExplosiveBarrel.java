@@ -76,8 +76,6 @@ public class ExplosiveBarrel extends DynamicBody {
 
         }
 
-
-
     }
 
 }

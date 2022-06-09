@@ -46,7 +46,6 @@ public class Level2  extends GameLevel{
             return false;
         }
     }
-
     @Override
     public String getLevelName() {
         return "Level2";

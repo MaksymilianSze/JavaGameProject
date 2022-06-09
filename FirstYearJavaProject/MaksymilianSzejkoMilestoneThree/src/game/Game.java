@@ -349,8 +349,6 @@ public class Game {
                 level.stop(); //stop the level
                 gameMusic.stop(); //stop the music
                 startLevel2(); //start the next level
-
-
             }
             else if (level instanceof Level2) {
                 level.getTruck().setPoints(0); //reset the score
